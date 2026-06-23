@@ -138,7 +138,7 @@ const DocumentListPage = () => {
 
         <button
           onClick={() => setIsUploadModalOpen(true)}
-          className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-xl transition-all duration-200"
+          className="inline-flex items-center gap-2 px-5 py-3 bg-linear-to-r from-emerald-500 to-teal-500 text-white rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-xl transition-all duration-200"
         >
           <Plus size={18} />
           Upload Document
@@ -288,7 +288,7 @@ const DocumentListPage = () => {
               <button
                 type="submit"
                 disabled={uploading}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl disabled:opacity-50"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 bg-linear-to-r from-emerald-500 to-teal-500 text-white rounded-xl disabled:opacity-50"
               >
                 <Upload size={18} />
                 {uploading

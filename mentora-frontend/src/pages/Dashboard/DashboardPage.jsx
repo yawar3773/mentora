@@ -44,7 +44,7 @@ const DashboardPage = () => {
 
   if(!dashboardData || !dashboardData.overview){
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl  bg-slate-100 mb-4">
             <TrendingUp className="w-8 h-8 text-slate-400"/>
@@ -109,7 +109,7 @@ const quizProgress =
 return (
   <div className="space-y-8">
     {/* Hero */}
-    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-500 to-teal-500 p-8 text-white shadow-xl">
+    <div className="relative overflow-hidden rounded-3xl bg-linear-to-r from-emerald-500 to-teal-500 p-8 text-white shadow-xl">
       <div className="absolute inset-0 bg-black/5" />
 
       <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
@@ -171,7 +171,7 @@ return (
               </div>
 
               <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center text-white shadow-lg ${stat.shadowColor}`}
+                className={`w-14 h-14 rounded-2xl bg-linear-to-br ${stat.gradient} flex items-center justify-center text-white shadow-lg ${stat.shadowColor}`}
               >
                 <Icon size={24} />
               </div>
@@ -197,7 +197,7 @@ return (
 
         <div className="h-3 rounded-full bg-slate-100">
           <div
-            className="h-3 rounded-full bg-gradient-to-r from-purple-400 to-pink-500"
+            className="h-3 rounded-full bg-linear-to-r from-purple-400 to-pink-500"
             style={{ width: `${flashcardProgress}%` }}
           />
         </div>
@@ -217,7 +217,7 @@ return (
 
         <div className="h-3 rounded-full bg-slate-100">
           <div
-            className="h-3 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500"
+            className="h-3 rounded-full bg-linear-to-r from-emerald-400 to-teal-500"
             style={{ width: `${quizProgress}%` }}
           />
         </div>
