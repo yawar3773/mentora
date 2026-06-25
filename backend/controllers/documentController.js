@@ -192,24 +192,31 @@ export const deleteDocument = async (req, res, next) => {
             _id: req.params.id,
             userId: req.user._id
         });
-    
-        if(!document){
+
+        if (!document) {
             return res.status(404).json({
-                status: false,
+                success: false,
                 error: 'Document not found',
                 statusCode: 404
             });
         }
 
-        // Delete file from filesystem
-        await fs.unlink(document.filePath).catch(() => {});
+        // Delete related flashcards
+        await Flashcard.deleteMany({
+            documentId: document._id
+        });
+
+        // Delete related quizzes
+        await Quiz.deleteMany({
+            documentId: document._id
+        });
 
         // Delete document
         await document.deleteOne();
 
         res.status(200).json({
-            status: true,
-            message: 'Document deleted successfully',
+            success: true,
+            message: 'Document deleted successfully'
         });
     } catch (error) {
         next(error);

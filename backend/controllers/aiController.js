@@ -1,6 +1,5 @@
 import Document from '../models/Document.js';
 import Quiz from '../models/Quiz.js';
-import ChatHistroy from '../models/ChatHistory.js';
 import * as geminiService from '../utils/geminiService.js';
 import Flashcard from '../models/Flashcard.js'
 import { findRelevantChunks } from '../utils/textChunker.js';
@@ -28,7 +27,7 @@ export const generateFlashcards = async (req, res, next) => {
         });
 
         if(!document){
-            res.status(404).json({
+            return res.status(404).json({
                 success: false,
                 error: 'Document not found or not ready',
                 statusCode: 404
@@ -55,7 +54,7 @@ export const generateFlashcards = async (req, res, next) => {
         });
 
         res.status(201).json({
-            success: false,
+            success: true,
             data: flashcardSet,
             message: 'Flashcards generated successfully'
         });
@@ -202,7 +201,6 @@ export const chat = async (req, res, next) => {
         let chatHistory = await ChatHistory.findOne({
             userId: req.user._id,
             documentId: document._id,
-            messages: []
         });
 
         if(!chatHistory) {

@@ -18,7 +18,7 @@ const quizSchema = new mongoose.Schema({
     },
     questions: [{
         question: {
-            type: [String],
+            type: String,
             required: true
         },
         options: {
@@ -28,13 +28,17 @@ const quizSchema = new mongoose.Schema({
         },
         correctAnswer: {
             type: String,
-            defualt: '',
+            default: '',
         },
         difficulty: {
             type: String,
             enum: ["easy", "medium", "hard"],
             default: "medium"
         },
+        explanation: {
+            type: String,
+            default: ""
+        }
     }],
     userAnswers: [{
         questionIndex: {

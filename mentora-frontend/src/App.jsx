@@ -6,13 +6,16 @@ import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import DashboardPage from './pages/Dashboard/DashboardPage';
 import DocumentListPage from './pages/Documents/DocumentListPage';
-import DocumentDetailPage from './pages/Documents/DocumentDetailPage';
+
 import FlashcardListPage from './pages/Flashcards/FlashcardListPage';
-import FlashcardPage from './pages/Flashcards/FlashcardPage';
-import QuizTakePage from './pages/Quizzes/QuizTakePage';
-import QuizResultPage from './pages/Quizzes/QuizResultPage';
 import ProfilePage from './pages/Profile/ProfilePage';
 import { useAuth } from './context/AuthContext';
+import DocumentLayout from './pages/Documents/DocumentLayout';
+import ChatTab from './components/documents/ChatTab';
+import AiActionsTab from './components/documents/AiActionsTab';
+import FlashcardsTab from './components/flashcards/FlashcardsTab';
+import QuizTab from './components/quizzes/QuizTab';
+import DocumentContent from './components/documents/DocumentContent';
 
 const app = () => {
   const {isAuthenticated, loading} = useAuth(); 
@@ -40,11 +43,46 @@ const app = () => {
         <Route element={<ProtectedRoute />} >
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/documents" element={<DocumentListPage />} />
-          <Route path="/documents/:id" element={<DocumentDetailPage />} />
+          <Route
+            path="/documents/:id"
+            element={<DocumentLayout />}
+          >
+            <Route
+              index
+              element={
+                <Navigate
+                  to="content"
+                  replace
+                />
+              }
+            />
+
+            <Route
+              path="content"
+              element={<DocumentContent />}
+            />
+
+            <Route
+              path="chat"
+              element={<ChatTab />}
+            />
+
+            <Route
+              path="ai-actions"
+              element={<AiActionsTab />}
+            />
+
+            <Route
+              path="flashcards"
+              element={<FlashcardsTab />}
+            />
+
+            <Route
+              path="quizzes"
+              element={<QuizTab />}
+            />
+          </Route>
           <Route path="/flashcards" element={<FlashcardListPage />} />
-          <Route path="/documents/:id/flashcards" element={<FlashcardPage />} />
-          <Route path="/quizzes/:quizId" element={<QuizTakePage />} />
-          <Route path="/quizzes/:quizId/results" element={<QuizResultPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Route>
 

@@ -1,16 +1,17 @@
-export default function EmeraldSpinner() {
+export default function Spinner({ text = "Loading..." }) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white-950">
-      <div className="relative flex items-center justify-center">
-        {/* Outer Glow */}
-        <div className="absolute h-24 w-24 rounded-full bg-emerald-500/20 blur-2xl animate-pulse" />
+    <div className="flex flex-col items-center justify-center py-16">
+      <div className="relative">
+        {/* Outer Ring */}
+        <div className="h-12 w-12 rounded-full border-4 border-gray-200" />
 
-        {/* Spinner */}
-        <div className="h-20 w-20 rounded-full border-[6px] border-emerald-900 border-t-emerald-400 animate-spin shadow-[0_0_25px_rgba(16,185,129,0.5)]" />
-
-        {/* Inner Dot */}
-        <div className="absolute h-3 w-3 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
+        {/* Animated Ring */}
+        <div className="absolute inset-0 h-12 w-12 rounded-full border-4 border-transparent border-t-emerald-500 border-r-emerald-500 animate-spin" />
       </div>
+
+      <p className="mt-4 text-sm font-medium text-gray-500 animate-pulse">
+        {text}
+      </p>
     </div>
   );
 }

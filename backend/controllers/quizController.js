@@ -166,11 +166,12 @@ export const getQuizResults = async (req, res, next) => {
 
             return{
                 questionIndex: index,
-                quesiton: question.question,
+                question: question.question,
                 options: question.options,
                 correctAnswer: question.correctAnswer,
                 selectedAnswer: userAnswer?.selectedAnswer || null,
                 isCorrect: userAnswer?.isCorrect || false,
+                difficulty: question.difficulty,
                 explanation: question.explanation
             };
         });

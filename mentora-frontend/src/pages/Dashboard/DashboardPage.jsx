@@ -350,7 +350,7 @@ return (
 
             <button
               onClick={() =>
-                navigate(`/quizzes/${quiz._id}`)
+                navigate(`/documents/${quiz.documentId._id}/quizzes`)
               }
               className="px-3 py-1.5 text-sm font-medium text-white bg-emerald-500 hover:bg-emerald-600 rounded-lg transition"
             >

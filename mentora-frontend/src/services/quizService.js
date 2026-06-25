@@ -21,7 +21,7 @@ const getQuizById = async (quizId) => {
 
 const submitQuiz = async (quizId, answers) => {
     try {
-        const response = await axiosInstance.post(API_PATHS.QUIZZES.SUBMIT_QUIZ(quizId), {answer});
+        const response = await axiosInstance.post(API_PATHS.QUIZZES.SUBMIT_QUIZ(quizId), {answers});
         return response.data;
     } catch (error) {
         throw error.response?.data || {message: 'Failed to submit quiz'}
@@ -30,7 +30,7 @@ const submitQuiz = async (quizId, answers) => {
 
 const getQuizResults = async (quizId) => {
     try {
-        const response = await axiosInstance.put(API_PATHS.QUIZZES.GET_QUIZ_RESULTS(quizId));
+        const response = await axiosInstance.get(API_PATHS.QUIZZES.GET_QUIZ_RESULTS(quizId));
         return response.data;
     } catch (error) {
         throw error.response?.data || {message: 'Failed to fetch quiz results'}
