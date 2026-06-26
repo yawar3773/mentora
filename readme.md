@@ -100,11 +100,11 @@ Mentora is a full-stack AI-powered study platform that transforms PDFs into inte
 
 ```text
 Mentora/
-├── client/          # React Frontend
-├── server/          # Express Backend
-├── uploads/         # Uploaded PDF Files
+├── mentora-frontend/          # React Frontend
+├── backend/                   # Express Backend
+├── .gitignore/         
 ├── README.md
-└── package.json
+└── assets
 ```
 
 ---
