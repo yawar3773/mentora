@@ -156,7 +156,7 @@ const ChatTab = () => {
                     : ""
                 }`}
               >
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   {message.role === "user" ? (
                     <div className="h-10 w-10 rounded-full bg-emerald-500 flex items-center justify-center text-white">
                       <User size={18} />

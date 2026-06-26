@@ -133,7 +133,7 @@ const FlashcardViewer = ({
       <div className="max-w-4xl mx-auto">
         <div
           onClick={handleReveal}
-          className={`cursor-pointer border rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 min-h-[420px] flex flex-col ${
+          className={`cursor-pointer border rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 min-h-105 flex flex-col ${
             showAnswer
               ? "bg-emerald-50 border-emerald-200"
               : "bg-white"
